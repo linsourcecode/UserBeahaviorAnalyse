@@ -1,0 +1,74 @@
+server:
+
+  port: 8002
+  tomcat:
+    max-connections: 10000
+    max-threads: 800
+    min-spare-threads: 100
+    accept-count: 200
+
+spring:
+
+  application:
+    name: User_pay
+
+
+  elasticsearch:
+    rest:
+      uris: hadoop101:9200
+
+  kafka:
+    #Kafka服务器地址
+    bootstrap-servers: hadoop103:9092
+    consumer:
+      #设置数据value的反序列化处理类
+      value-deserializer: org.apache.kafka.common.serialization.LongSerializer
+    producer:
+      acks: 1
+      batch-size: 1000
+      compression-type: snappy
+
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+      driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+      url: jdbc:mysql://192.168.45.1:3306/alibaba?allowPublicKeyRetrieval=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true
+      username: root
+      password: root
+
+      druid:
+        # 默认 true 为 true 时 validationQuery 必须设为非空字符串
+        # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+        test-on-borrow: false
+        # 默认 false 为 true 时 validationQuery 必须设为非空字符串
+        # 【建议】配置为true，不影响性能，并且保证安全性。申请连接的时候检测，
+        # 如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+        test-while-idle: true
+        # 默认 true 为 true 时 validationQuery 必须设为非空字符串
+        # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+        test-on-return: false
+        # 用来检测连接是否有效的sql，要求是一个查询语句，常用select 'x'。如果validationQuery为null，
+        # testOnBorrow、testOnReturn、testWhileIdle都不会起作用。
+        validation-query: select 1
+#线程池配置
+async.executor.thread.core_pool_size: 5
+# 最大线程数
+async.executor.thread.max_pool_size: 20
+# 任务队列大小
+async.executor.thread.queue_capacity: 500
+# 线程池中线程的名称前缀
+async.executor.thread.name.prefix: async-service-
+# 缓冲队列中线程的空闲时间
+async.executor.thread.keep_alive_seconds: 100
+
+
+
+
+
+
+
+mybatis-plus:
+
+  mapperLocations: classpath:org/example/mapper/*.xml
+  type-aliases-package: org.example.Entiy # entity别名
+  configuration:
+    map-underscore-to-camel-case: false

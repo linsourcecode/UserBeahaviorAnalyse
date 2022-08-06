@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="org.example.mapper.Mappers">
+
+<!--
+    <insert id = "add" parameterType="org.example.Entiy.Order_Item">
+            INSERT INTO orderinfo (user_id, order_id, item_id, flag, times, price, num) VALUES(#{user_id}, #{order_id}, #{item_id}, #{flag}, #{times}, #{price}, #{num})
+    </insert>-->
+    <insert id="order_service" parameterType="org.example.Entiy.Order_Item">
+   update  item_detail set pcomm=pcomm-1 where item_id=#{item_id};
+   INSERT INTO orderinfo (user_id, order_id, item_id, flag, times, price, num) VALUES(#{user_id}, #{order_id}, #{item_id}, #{flag}, #{times}, #{price}, #{num})
+
+    </insert>
+    <update id="updatePro" parameterType="string">
+        update pro set num=num+1 where proname=#{name}
+    </update>
+    <update id="batchUpdatePro" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+                   update pro
+                   <set>
+                       num=#{item.num}
+                    </set>
+                    where proname = #{item.proname}
+              </foreach>
+    </update>
+
+</mapper>

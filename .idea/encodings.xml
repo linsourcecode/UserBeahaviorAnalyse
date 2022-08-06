@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FlinkWorkSpace" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FlinkWorkSpace/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FlinkWorkSpace/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MyTopItem/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MyTopItem/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UserBea" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UserBea/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UserBea/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flinkcdc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flinkcdc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flinkcdc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
